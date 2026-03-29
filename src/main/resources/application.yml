@@ -1,0 +1,12 @@
+server:
+  port: 8080
+
+spring:
+  data:
+    mongodb:
+      uri: ${MONGODB_URI:mongodb+srv://kingalok779_db_user:Archify_AI@archify-ai.ryml0h9.mongodb.net/archify_ai}
+
+app:
+  jwt:
+    secret: ${JWT_SECRET:replace-this-with-a-long-secret-key-for-production}
+    expiration-ms: ${JWT_EXPIRATION_MS:604800000}
