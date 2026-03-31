@@ -1,0 +1,12 @@
+server:
+  port: ${PORT:8080}
+spring:
+  mongodb:
+    uri: ${SPRING_MONGODB_URI:mongodb+srv://kingalok779_db_user:Archify_AI@archify-ai.ryml0h9.mongodb.net/archify_ai}
+  data:
+    mongodb:
+      uri: ${SPRING_DATA_MONGODB_URI:mongodb+srv://kingalok779_db_user:Archify_AI@archify-ai.ryml0h9.mongodb.net/archify_ai}
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
