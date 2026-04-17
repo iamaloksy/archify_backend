@@ -38,15 +38,11 @@ public class ProjectController {
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "12") int size,
             @RequestParam(defaultValue = "") String q) {
-            
+
         String user = ownerId != null ? ownerId : "anonymous";
-        Page<Project> projects;
         PageRequest pageReq = PageRequest.of(page, size, Sort.by(Sort.Direction.DESC, "timestamp"));
-        if (q != null && !q.trim().isEmpty()) {
-            projects = projectRepository.findByOwnerIdAndNameContainingIgnoreCase(user, q, pageReq);
-        } else {
-            projects = projectRepository.findByOwnerId(user, pageReq);
-        }
+        String searchTerm = q == null ? "" : q.trim();
+        Page<Project> projects = projectRepository.findVisibleProjects(user, searchTerm, pageReq);
         
         ProjectPageResponse resp = new ProjectPageResponse();
         resp.setItems(projects.getContent());

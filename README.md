@@ -22,7 +22,7 @@ Spring Boot backend for auth and 3D visualization project management.
 2. Start API:
 
 ```bash
-mvn spring-boot:run
+.\mvnw spring-boot:run
 ```
 
 Server runs on `http://localhost:8080`.
